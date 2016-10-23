@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void insertionSortPart2(int[] ar){  
+        /*
+           // Fill up the code for the required logic here
+           // Manipulate the array as required
+           // The code for Input/Output is already provided
+        */
+        int cont=0, e, x, n = (ar.length);
+        for(int i = 1; i < n; i++){
+            e = ar[i];
+            x = i;
+            while(x > 0 && ar[x-1] > e){
+                swap(ar, x , x-1);
+                x = x-1;
+                cont++;
+            }
+            ar[ x ] = e;
+            printArray(ar);
+        }
+    }  
+    
+    private static void swap(int[] a, int i, int j){
+            int temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+    }
+      
+    private static void printArray(int[] ar) {
+      for(int n: ar){
+         System.out.print(n+" ");
+      }
+        System.out.println("");
+    }
+    
+    
+    public static void main(String[] args){
+       Scanner in = new Scanner(System.in);
+       int s = in.nextInt();
+       int[] ar = new int[s];
+       for(int i=0;i<s;i++){
+            ar[i]=in.nextInt(); 
+       }
+       insertionSortPart2(ar);        
+    }
+}
